@@ -1,26 +1,13 @@
 {
 	"pages": [
-		
 		{
-			"path": "pages/ai/ai",
+			"path": "pages/index/index",
 			"style": {
 				"navigationStyle":"custom"
 			}
 		},
 		{
-			"path":"pages/test/test",
-			"style":{
-				"navigationStyle": "custom"
-			}
-		},
-	{
-		"path": "pages/into/into",
-		"style": {
-			"navigationStyle":"custom"
-		}
-	},
-		{
-			"path": "pages/person/person",
+			"path": "pages/inter/inter",
 			"style": {
 				"navigationStyle":"custom"
 			}
@@ -39,11 +26,34 @@
 		},
 		
 		{
-		"path": "pages/index/index",
+			"path":"pages/test/test",
+			"style":{
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/ai/ai",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		},
+		
+	{
+		"path": "pages/into/into",
 		"style": {
 			"navigationStyle":"custom"
 		}
-	}
+	},
+		{
+			"path": "pages/person/person",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		}
+		
+		
+		
+	
 	],
 	"globalStyle": {
 		

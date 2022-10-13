@@ -1,7 +1,11 @@
 <template>
 	<div class="page">
+		<image @click="back" class="home" src="https://pic1.imgdb.cn/item/6339401016f2c2beb1e1a7c6.png" mode=""></image>
 		<image class="back_ima" src="https://pic1.imgdb.cn/item/6339997216f2c2beb16adafa.png" mode="scaleToFill"></image>
 		<image class="login_back_ima" src="https://pic1.imgdb.cn/item/6339975d16f2c2beb16685ef.png"  ></image>
+		<uni-popup ref="message" type="message">
+						<uni-popup-message type="error" :message="messageText" :duration="2000"></uni-popup-message>
+					</uni-popup>
 		<div class="login_msg">
 			<div class="title">
 				<text>登录账号</text>
@@ -13,11 +17,11 @@
 			<div class="login_user">
 					<div class="input_msg">
 				<div class="input_title">邮箱</div>
-			<uni-easyinput class="input" v-model="username" :styles="styles"  placeholder="请输入邮箱"@input="input"></uni-easyinput>
+			<uni-easyinput class="input" v-model="form.username" :styles="styles"  placeholder="请输入邮箱"></uni-easyinput>
 			</div>
 				<div class="input_msg">
 					<div class="input_title">密码</div>
-					<uni-easyinput class="input" type="password" v-model="password" :styles="styles"  placeholder="请输入密码"@input="input"></uni-easyinput>
+					<uni-easyinput class="input" type="password" v-model="form.password" :styles="styles"  placeholder="请输入密码"></uni-easyinput>
 				</div>
 					<button @click="login_to" class="login_btn">立即登录</button>
 			</div>  
@@ -33,6 +37,11 @@
 	export default{
 		data(){
 			return {
+				form:{
+					username:'',
+					password:''
+				},
+				messageText:'',
 				styles:{
 					width:'80%',
 					border:'0',
@@ -40,16 +49,71 @@
 					
 				},
 				username:'',
-				password:''
+				password:'',
+				name:''
 			} 
 		},
 		methods:{
+			back(){
+				uni.navigateTo({
+					url:'/pages/index/index'
+				})
+			},
+			messageToggle() {
+							
+							this.messageText = `账号或密码错误`
+							this.$refs.message.open()
+						},
 			login_to(){
-				
+				uniCloud.callFunction({
+					name:'login',
+					data:this.form,
+					success:(e)=>{
+						console.log(e.result)
+						if(e.result!=null){
+							this.username=e.result.username,
+							this.password=e.result.password,
+							this.name=e.result.name
+							uni.setStorage({
+								key: 'username',
+								data: this.username,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.setStorage({
+								key: 'password',
+								data: this.password,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.setStorage({
+								key: 'name',
+								data: this.name,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.setStorage({
+								key: 'readylogin',
+								data: 1,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.navigateTo({
+								url:'/pages/index/index'
+							})
+						}else{
+							this.messageToggle()
+						}
+					}
+				})
 			},
 			go_register(){
 				uni.navigateTo({
-					url:'/pages/register/register '
+					url:'/pages/register/register'
 				})
 			}
 		}
@@ -88,6 +152,13 @@
 		width:100%;
 		position:fixed;
 		z-index: -1;
+	}
+	.home{
+		height:90rpx;
+		width:90rpx;
+		position: fixed;
+		left:2%;
+		top:2%;
 	}
 	.login_back_ima{
 		height:80%;

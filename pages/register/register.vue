@@ -1,6 +1,11 @@
 
 	<template>
 		<div class="page">
+			<image @click="back" class="home" src="https://pic1.imgdb.cn/item/6339401016f2c2beb1e1a7c6.png" mode=""></image>
+			<uni-popup ref="alertDialog" type="dialog">
+							<uni-popup-dialog :type="msgType" cancelText="关闭" confirmText="同意" title="通知" content="注册成功" @confirm="dialogConfirm"
+								@close="dialogClose"></uni-popup-dialog>
+						</uni-popup>
 			<image class="back_ima" src="https://pic1.imgdb.cn/item/6339997216f2c2beb16adafa.png" mode="scaleToFill"></image>
 			<image class="login_back_ima" src="https://pic1.imgdb.cn/item/6339975d16f2c2beb16685ef.png"  ></image>
 			<div class="login_msg">
@@ -13,19 +18,19 @@
 				</div>
 				<div class="login_user">
 					<div class="input_msg">
-						<div class="input_title">电话</div>
-						<uni-easyinput class="input" type="password" v-model="value" :styles="styles"  placeholder="请输入电话"@input="input"></uni-easyinput>
+						<div class="input_title">昵称</div>
+					<uni-easyinput class="input" v-model="form.name" :styles="styles"  placeholder="请输入昵称"></uni-easyinput>
 					</div>
 						<div class="input_msg">
 					<div class="input_title">邮箱</div>
-				<uni-easyinput class="input" v-model="value" :styles="styles"  placeholder="请输入邮箱"@input="input"></uni-easyinput>
+				<uni-easyinput class="input" v-model="form.username" :styles="styles"  placeholder="请输入邮箱"></uni-easyinput>
 				</div>
 					<div class="input_msg"> 
 						<div class="input_title">密码</div>
-						<uni-easyinput class="input" type="password" v-model="value" :styles="styles"  placeholder="请输入密码"@input="input"></uni-easyinput>
+						<uni-easyinput class="input" type="password" v-model="form.password" :styles="styles"  placeholder="请输入密码"></uni-easyinput>
 					</div>
 					
-						<button class="login_btn">现在加入</button>
+						<button @click="user_add" class="login_btn">现在加入</button>
 				</div>
 				<div class="foot">
 					<div id="foot1">点击加入</div>
@@ -39,6 +44,12 @@
 		export default{
 			data(){
 				return {
+					msgType:'',
+					form:{
+						name:'',
+						username:'',
+						password:''
+					},
 					styles:{
 						width:'80%',
 						border:'0',
@@ -48,9 +59,38 @@
 				} 
 			},
 			methods:{
+				back(){
+					uni.navigateTo({
+						url:'/pages/index/index'
+					})
+				},
+				dialogConfirm(){
+					uni.navigateTo({
+						url:'/pages/login/login'
+					})
+				},
+				dialogClose(){
+					uni.navigateTo({
+						url:'/pages/login/login'
+					})
+				},
+				dialogToggle(type) {
+					this.msgType = type
+					this.$refs.alertDialog.open()
+				},
 				go_login(){
 					uni.navigateTo({
-						url:'/pages/login/login '
+						url:'/pages/login/login'
+					})
+				},
+				user_add(){
+					uniCloud.callFunction({
+						name:'register',
+						data:this.form,
+						success:(e)=>{
+							console.log(e.result);
+							this.dialogToggle('info');
+						}
 					})
 				}
 			}
@@ -108,6 +148,13 @@
 			position: fixed;
 			top:15%;
 			left:20%;
+		}
+		.home{
+			height:90rpx;
+			width:90rpx;
+			position: fixed;
+			left:2%;
+			top:2%;
 		}
 		.tip{
 			position: fixed;

@@ -50,6 +50,13 @@
 	top:15%;
 	left:20%;
 }
+.home.data-v-891c2434{
+	height:90rpx;
+	width:90rpx;
+	position: fixed;
+	left:2%;
+	top:2%;
+}
 .tip.data-v-891c2434{
 	position: fixed;
 	top:28%;

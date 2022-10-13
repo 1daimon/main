@@ -15,7 +15,7 @@
 		<div class="user1">
 			<image @click="work1" :class="{'tou1':!start1,'tou1_start':start1}" :src="result_ima1" ></image>
 			<div class="person_msg1">
-			<div class="user_name1">user1</div>
+			<div class="user_name1">人工智障</div>
 			<image class="person1"  src="https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" mode=""></image>
 			</div>
 			
@@ -104,6 +104,66 @@
 			}
 		},
 		methods:{
+			easyMod(sum1,sum2,figure){
+				var block[3]=[3,3,3]
+				var i
+				for( i=0;i<9;i++){
+					if(sum1[i]!=0){
+						if(i>=0&&i<=2) {
+							 Block[0]=Block[0]-1
+							 }
+						 else if(i>=3&&i<=5){
+							 Block[1]=Block[1]-1
+						 } 
+						else if(i>=6&&i<=8){
+							 Block[2]=Block[2]-1
+						}
+					}
+				}
+				var flag=0;
+				   var blnum=0;
+				    for(i=0;i<3;i++){
+				        if(Block[i]>blnum){
+				            flag=i
+				            blnum=Block[i]
+				        }
+				    }
+				var nextStep=0;
+				 switch (flag)
+				    {
+				    case 0:
+				        for( i=0;i<3;i++){
+				            if(sum1[i]==0){
+								 nextStep=i
+							}
+				        }
+				        break;
+				    case 1:
+				        for(i=3;i<6;i++){
+				            if(sum2[i]==0){
+								nextStep=i
+							} 
+				        }
+				        break;
+				    case 2:
+				        for(int i=6;i<9;i++){
+				            if(ownBoard[i]==0) {
+								nextStep=i
+							}
+				        }
+				        break;
+				    default:
+				        break;
+				    }
+				    return nextStep
+				
+			},
+			stableMod(sum1,sum2,figure){
+				var ownscore=calculate(sum1)
+				var otherscore=calculate(sum2)
+				var d_value[9]=[0,0,0,0,0,0,0,0,0]
+				
+			}
 			back(){
 				uni.navigateTo({
 					url:'/pages/index/index'

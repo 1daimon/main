@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/ai/ai",
-    "pages/test/test",
-    "pages/into/into",
-    "pages/person/person",
+    "pages/index/index",
+    "pages/inter/inter",
     "pages/register/register",
     "pages/login/login",
-    "pages/index/index"
+    "pages/test/test",
+    "pages/ai/ai",
+    "pages/into/into",
+    "pages/person/person"
   ],
   "subPackages": [],
   "window": {},

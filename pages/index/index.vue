@@ -2,14 +2,17 @@
 	<div class="page">
 		 <view class="status_bar">
 		        </view>
-		<image class="login_ima" src="https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" mode="aspectFit"></image>
-		<div class="tips" v-show="login">请先登录(注册)</div>
+				<uni-popup ref="message" type="message">
+								<uni-popup-message type="warn" :message="messageText" :duration="2000"></uni-popup-message>
+							</uni-popup>
+		<image class="login_ima" @click="go_per" src="https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" mode="aspectFit"></image>
+		
 		<image class="ima" src="https://pic1.imgdb.cn/item/63383d8d16f2c2beb1f9cec5.png" mode="scaleToFill"></image>
-		<div class="btns" v-show="btn_show">
+		<div class="btns" >
 		<image @click="into_local" class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe2a.png" mode="widthFix"></image>
 		<image @click="into_ai" class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe32.png" mode="widthFix"></image>
-		<image class="btn_ima" src="https://pic1.imgdb.cn/item/6338514a16f2c2beb110ecc2.png" mode="widthFix"></image>
-		<image class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe39.png" mode="widthFix"></image>
+		<image  @click="into_inter" class="btn_ima" src="https://pic1.imgdb.cn/item/6338514a16f2c2beb110ecaf.png" mode="widthFix"></image>
+		<image  @click="into_ai" class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe39.png" mode="widthFix"></image>
 		</div>
 	</div>
 </template>
@@ -20,19 +23,35 @@
 			return{
 				time:5,
 				btn_show:true,
-				login:true,
+				messageText:'',
+				readylogin:0,
 			}
 		},
+		
 		methods:{
-			into_local(){
-				if(!this.login){ 
-					
+			messageToggle() {
+							this.messageText = `请先登录再进行在线对战`
+							this.$refs.message.open()
+						},
+			go_per(){
+				uni.navigateTo({
+					url:'/pages/person/person'
+				})
+			},
+			into_inter(){
+				if(this.readylogin==0){ 
+					this.messageToggle()
 				}else{
-					console.log("anso")
+					uni.navigateTo({
+						url:'/pages/inter/inter'
+					})
+				}
+			},
+			into_local(){
 					uni.navigateTo({
 						url:'/pages/into/into'
 					})
-				}
+
 			},
 			into_ai(){
 				uni.navigateTo({
@@ -41,7 +60,17 @@
 			}
 			 
 		},
-		onLoad(){
+		onShow(){
+			uni.getStorage({
+				key:'readylogin',
+				success: function (res) {
+					console.log("res",res)
+						if(res.data==1){
+							this.readylogin=res.data
+						}
+						
+					}
+			})
 			setInterval(function(){
 				this.time=this.time-1
 				if(this.time==0){

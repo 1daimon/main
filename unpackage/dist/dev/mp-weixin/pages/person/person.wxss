@@ -17,7 +17,8 @@
 }
 .msg.data-v-390a77b4{
 	font-size:35rpx;
-	margin-top:8%;
+	margin-top:5%;
+	margin-bottom:8%;
 	margin-left:5%;
 }
 .per_show.data-v-390a77b4{

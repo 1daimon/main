@@ -1,5 +1,5 @@
 {
-  "name": "register_cla",
+  "name": "login",
   "dependencies": {},
   "extensions": {
     "uni-cloud-jql": {}

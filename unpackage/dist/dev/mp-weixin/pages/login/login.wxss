@@ -31,6 +31,13 @@
 	position:fixed;
 	z-index: -1;
 }
+.home.data-v-b237504c{
+	height:90rpx;
+	width:90rpx;
+	position: fixed;
+	left:2%;
+	top:2%;
+}
 .login_back_ima.data-v-b237504c{
 	height:80%;
 	width:70%;

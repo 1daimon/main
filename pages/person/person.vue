@@ -21,22 +21,22 @@
 		<div>
 			<div class="msg">
 					<text>昵称</text>
-				<uni-easyinput class="nickname" :styles="styles" v-model="value"></uni-easyinput>
+				<text class="content">{{person.name}}</text>
 			</div>
 			<div class="msg">
 				<text>最高分</text>
 				<text class="content">45</text>
 			</div>
 			<div class="msg">
-				<text>胜场/总场次</text>
+				<text>总场次</text>
 				<text class="content">45</text>
 			</div>
 			<div class="msg">
 			<text>邮箱</text>
-			<text class="content">45</text>
+			<text class="content">{{person.email}}</text>
 			</div>
 		</div>
-		<button class="store">保存</button>
+		
 		
 		</div>
 	</div>
@@ -46,7 +46,11 @@
 	export default{
 		data(){
 			return{
+				
+				readylogin:0,
 				person:{
+					email:'XXX',
+					name:'xxx',
 					src:'https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png'
 				},
 				styles:{
@@ -66,6 +70,32 @@
 				})
 			}
 			
+		},
+		onShow(){
+			uni.getStorage({
+				key:'readylogin',
+				success: function (res) {
+					console.log("res",res.data)
+						if(res.data==1){
+							this.person.src="https://pic1.imgdb.cn/item/6348460b16f2c2beb1c50215.jpg",
+							this.readylogin=res.data
+							uni.getStorage({
+								key:'name',
+								success: function (res) {
+									this.person.name=res.data
+								}
+							})
+							uni.getStorage({
+								key:'username',
+								success: function (res) {
+									this.person.email=res.data
+								}
+							})
+						}
+						
+					}
+			})
+			console.log(this.person)
 		}
 	}
 </script>
@@ -89,7 +119,8 @@
 	}
 	.msg{
 		font-size:35rpx;
-		margin-top:8%;
+		margin-top:5%;
+		margin-bottom:8%;
 		margin-left:5%;
 	}
 	.per_show{
