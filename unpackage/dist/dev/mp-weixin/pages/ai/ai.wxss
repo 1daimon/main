@@ -1,0 +1,120 @@
+
+.chessBoard1.data-v-f5844974{
+	position:absolute;
+	background-color: rgba(255,255,255,0.5);
+	z-index:1;
+	width:58.64%;
+	height: 27.32%;
+	display: flex;
+	top:20.3%;
+	flex-wrap: wrap;
+	margin-left:20.68%;
+}
+.chessBoard2.data-v-f5844974{
+	position:absolute;
+	background-color: rgba(255,255,255,0.5);
+	z-index:1;
+	width:58.64%;
+	height: 27.32%;
+	display: flex;
+	top:54.21%;
+	flex-wrap: wrap;
+	margin-left:20.68%;
+}
+.page.data-v-f5844974{
+	height:100vh;
+}
+.block.data-v-f5844974{
+	width:30%;
+	height:30%;
+	margin:auto;
+}
+.block_ima.data-v-f5844974{
+	width:90%;
+	height:90%;
+	margin:5%;
+}
+.back_ima.data-v-f5844974{
+	width:100%;
+	height:100vh;
+	position: absolute;
+	z-index:-1;
+}
+.tou.data-v-f5844974{
+	margin-left:10%;
+	width:90rpx;
+	height:90rpx;
+}
+.person1.data-v-f5844974{
+	width:80rpx;
+	height:80rpx;
+}
+.person2.data-v-f5844974{	
+	width:80rpx;
+	height:80rpx;
+}
+.user1.data-v-f5844974{
+	width:80%;
+	margin:0 10%;
+	top:10%;
+	display: flex;
+	position:fixed;
+	justify-content:space-between;
+}
+.person_msg1.data-v-f5844974{
+	
+	display: flex;
+}
+.person_msg2.data-v-f5844974{
+	display: flex;
+	margin-left:10%;
+	margin-top:15rpx;
+}
+.user_name1.data-v-f5844974{
+	font-size: 50rpx;
+	margin-right: 20rpx;
+}
+.user_name2.data-v-f5844974{
+	font-size: 50rpx;
+	margin-left: 20rpx;
+}
+.tou2.data-v-f5844974{
+	margin-left:25%;
+	width:90rpx;
+	height:90rpx;
+	margin-top:10rpx;
+}
+.tou2_start.data-v-f5844974{
+	margin-left:25%;
+	width:110rpx;
+	height:110rpx;
+}
+.tou1.data-v-f5844974{
+	margin-left:10%;
+	width:90rpx;
+	height:90rpx;
+	margin-top:10rpx;
+	margin-right:20%;
+}
+.tou1_start.data-v-f5844974{
+	margin-left:5%;
+	width:110rpx;
+	height:110rpx;
+}
+.user2.data-v-f5844974{
+	position: fixed;
+	bottom:8%;
+	display: flex;
+	width:80%;
+	margin:0 10%;
+	height:110rpx;
+}
+.home.data-v-f5844974{
+	height:90rpx;
+	width:90rpx;
+	position: fixed;
+	left:8%;
+	top:4%;
+}
+ 
+

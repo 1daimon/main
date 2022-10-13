@@ -1,0 +1,65 @@
+
+page.data-v-57280228{
+	height:100vh;
+}
+.page.data-v-57280228{
+	height:100%;
+}
+.tips.data-v-57280228{
+	position:fixed;
+	z-index: 1;
+}
+.status_bar.data-v-57280228 {
+        height: 25px;
+        width: 100%;
+		position:fixed;
+		z-index:1;
+}
+.login_ima.data-v-57280228{
+	width:120rpx;
+	height:120rpx;
+	position:fixed;
+	top:70rpx;
+	left:60rpx;
+}
+.show_btn.data-v-57280228{
+	background-color: white;
+	position:absolute;
+	font-size: 20rpx;
+	top:60rpx;
+	left:25rpx;
+	opacity:0.5;
+	border-radius: 40%;
+}
+.btn_ima.data-v-57280228{
+	width:100%;
+	margin-top:5%;
+}
+.page.data-v-57280228{
+	height:100%;
+	position: relative;
+}
+.btns.data-v-57280228{
+	position: fixed;
+	z-index:1;
+	width:50%;
+	bottom:15%;
+	left:3%;
+	
+	height:auto;
+}
+.btn.data-v-57280228{
+	width:100%;
+	background:rgba(0,0,0,0);
+	margin:-10% auto ;
+	padding:0;
+	border-color:rgba(0,0,0,0);
+}
+.ima.data-v-57280228{
+	border-color:rgba(0,0,0,0);
+	position: absolute;
+	z-index: -1;
+	height:100vh;
+	width:100%;
+}
+

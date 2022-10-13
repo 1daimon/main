@@ -1,0 +1,67 @@
+
+.login_btn.data-v-b237504c{
+	border-radius: 25rpx;
+	width:80%;
+	margin:40rpx auto;
+	background-color: aqua;
+	color:white;
+}
+#foot1.data-v-b237504c{
+	text-align: center;
+}
+.input_msg.data-v-b237504c{
+	margin-top:30rpx;
+}
+.input_title.data-v-b237504c{
+	margin-bottom:20rpx;
+}
+.foot.data-v-b237504c{
+	width:60%;
+	margin-left:20%;
+	bottom:15%;
+	position:fixed;
+	font-size: 25rpx;
+}
+.page.data-v-b237504c{
+	height:100vh;
+}
+.back_ima.data-v-b237504c{
+	height:100%;
+	width:100%;
+	position:fixed;
+	z-index: -1;
+}
+.login_back_ima.data-v-b237504c{
+	height:80%;
+	width:70%;
+	position:fixed;
+	z-index:0;
+	left:15%;
+	top:10%;
+	border-radius: 30rpx;
+}
+.title.data-v-b237504c{
+	font-size:45rpx;
+	font-weight: 600;
+	color:white;
+	position: fixed;
+	top:15%;
+	left:20%;
+}
+.tip.data-v-b237504c{
+	position: fixed;
+	top:28%;
+	left:20%;
+	font-size:25rpx;
+}
+.login_user.data-v-b237504c{
+	top:32%;
+	left:19%;
+	position: fixed;
+	width:60%;
+}
+.input_title.data-v-b237504c{
+	font-size: 25rpx;
+	color:blue;
+}
+

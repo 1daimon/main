@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/ai/ai",
+    "pages/test/test",
+    "pages/into/into",
+    "pages/person/person",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/index/index"
+  ],
+  "subPackages": [],
+  "window": {},
+  "usingComponents": {}
+}
