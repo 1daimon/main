@@ -1,9 +1,17 @@
 <template>
 	<div class="page">
+		<div class="select" v-show="!readyselect">
+			<uni-section title="难度选择" type="line">
+			<uni-data-checkbox class="select_list" mode="button" v-model="radio1" :localdata="moding"></uni-data-checkbox>
+			<button @click="decide_dif" class="decide_moding">确定</button>
+			</uni-section>
+
+		</div>
+		
 		<image @click="back" class="home" src="https://pic1.imgdb.cn/item/633976c516f2c2beb129b2b0.png" mode=""></image>
 		<image class="back_ima" src="https://pic1.imgdb.cn/item/63393f8f16f2c2beb1e11bff.png" mode="scaleToFill"></image>
 		<div class="chessBoard1">
-			<div class="block" v-for="(item,index) in sum1"  @click="step_in1(index)">	
+			<div class="block" v-for="(item,index) in sum1" >	
 				<image class="block_ima"  :src="ima_list1[index]" v-if="isShow"></image>
 			</div>
 		</div>
@@ -13,7 +21,7 @@
 			</div>
 		</div>
 		<div class="user1">
-			<image @click="work1" :class="{'tou1':!start1,'tou1_start':start1}" :src="result_ima1" ></image>
+			<image :class="{'tou1':!start1,'tou1_start':start1}" :src="result_ima1" ></image>
 			<div class="person_msg1">
 			<div class="user_name1">人工智障</div>
 			<image class="person1"  src="https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" mode=""></image>
@@ -55,6 +63,23 @@
 	export default{
 		data(){
 			return{
+				readyselect:false,
+				moding:[
+					{
+						text: '简单',
+						value: 0
+					},
+					{
+						text: '中等',
+						value: 1
+					},
+					{
+						text: '困难',
+						value: 2
+					},
+				],
+				
+				radio1:'',
 				message:'',
 				msgType: '',
 				sum1:[0,0,0,0,0,0,0,0,0],
@@ -104,10 +129,48 @@
 			}
 		},
 		methods:{
+			decide_dif(){
+				this.readyselect=true
+				console.log(this.radio1)
+				this.message=''
+				this.msgType=''
+				this.sum1=[0,0,0,0,0,0,0,0,0]
+				this.sum2=[0,0,0,0,0,0,0,0,0]
+				this.start1=false
+				this.msgType=''
+				this.full=0
+				this.start2=false
+				this.please=0
+				this.use1=0
+				this.use2=0
+				this.score1=0
+				this.result_text=''
+				this.score2=0
+				this.ready1=1
+				this.winner=''
+				this.ready2=1,
+				this.result_ima1="https://pic1.imgdb.cn/item/633845fb16f2c2beb1030b47.png"
+				this.result_ima2="https://pic1.imgdb.cn/item/633845fb16f2c2beb1030b47.png"
+				this.result_num=''
+				this.ima_list1=[
+					'','','','','',''
+				]
+				this.ima_list2=[
+					'','','','','',''
+				]
+				this.click=0
+				this.changenum1=0
+				this.changenum2=0
+				
+				this.isShow= false// 更新dom
+				this.$nextTick(()=>{
+				this.isShow = true
+				    })
+			},
 			easyMod(sum1,sum2,figure){
-				var block[3]=[3,3,3]
-				var i
-				for( i=0;i<9;i++){
+				var Block=[3,3,3]
+				
+				for(var i=0;i<9;i++){
 					if(sum1[i]!=0){
 						if(i>=0&&i<=2) {
 							 Block[0]=Block[0]-1
@@ -122,7 +185,7 @@
 				}
 				var flag=0;
 				   var blnum=0;
-				    for(i=0;i<3;i++){
+				    for(var i=0;i<3;i++){
 				        if(Block[i]>blnum){
 				            flag=i
 				            blnum=Block[i]
@@ -132,22 +195,22 @@
 				 switch (flag)
 				    {
 				    case 0:
-				        for( i=0;i<3;i++){
+				        for(var i=0;i<3;i++){
 				            if(sum1[i]==0){
 								 nextStep=i
 							}
 				        }
 				        break;
 				    case 1:
-				        for(i=3;i<6;i++){
+				        for(var i=3;i<6;i++){
 				            if(sum2[i]==0){
 								nextStep=i
 							} 
 				        }
 				        break;
 				    case 2:
-				        for(int i=6;i<9;i++){
-				            if(ownBoard[i]==0) {
+				        for(var i=6;i<9;i++){
+				            if(sum1[i]==0) {
 								nextStep=i
 							}
 				        }
@@ -159,11 +222,214 @@
 				
 			},
 			stableMod(sum1,sum2,figure){
-				var ownscore=calculate(sum1)
-				var otherscore=calculate(sum2)
-				var d_value[9]=[0,0,0,0,0,0,0,0,0]
+				var ownscore=this.calculate(sum1)
+				var otherscore=this.calculate(sum2)
+				var d_value=[0,0,0,0,0,0,0,0,0]
 				
-			}
+				
+				for(var i=0;i<9;i++){
+					if(sum1[i]==0){
+						var own1=[0,0,0,0,0,0,0,0,0]
+						for(var li=0;li<9;li++){
+							own1[li]=sum1[li]
+						}
+					
+						var other1=[0,0,0,0,0,0,0,0,0]
+						for(var ii=0;ii<9;ii++) {
+						other1[ii]=sum2[ii];//复制一个otherboard
+						  //cout<<other1[ii]<<" ";
+						}
+						
+						own1[i]=figure;
+						
+						 if(i>=0&&i<=2){//同行消灭处理
+						    for(var j=0;j<=2;j++){
+						     if(other1[j]==figure) {
+								 other1[j]=0;
+							 }
+						     }
+						     }
+						     else if(i>=3&&i<=5){
+						        for(var j=3;j<=5;j++){
+						           if(other1[j]==figure) {
+									   other1[j]=0;
+								   }
+						            }
+						            }
+						    else if(i>=6&&i<=8){
+						        for(var j=6;j<=8;j++){
+						             if(other1[j]==figure) {
+										 other1[j]=0;
+									 }
+						            }
+						            }
+						
+						     var D_ownscore=this.calculate(own1)-ownscore
+						     var D_otherscore=otherscore-this.calculate(other1)
+						     var Differ=D_otherscore+D_ownscore
+						    d_value[i]=Differ
+						
+					}
+					
+				}
+				var max=0,flag=0
+				for(var i=0;i<9;i++){
+					if(d_value[i]>max){
+						max=d_value[i];
+						flag=i
+					}
+				}
+				console.log("flag",flag)
+				return flag;
+			},
+			nextStep(sum1,sum2,figure){
+				 var Block=[3,3,3];
+				 
+				for(var i=0;i<9;i++){//获取格子填充情况
+				    if(sum1[i]!=0){
+				        if(i>=0&&i<=2) {
+							Block[0]--;
+						}
+				        else if(i>=3&&i<=5) {
+							Block[1]--;
+						}
+				        else if(i>=6&&i<=8) {
+							Block[2]--;
+						}
+				        }
+				    }//
+					var ownScore=this.calculate(sum1)
+					var otherScore=this.calculate(sum2)
+					
+					var D_value=[0,0,0,0,0,0,0,0,0]
+					  for(var i=0;i<9;i++){
+					        if(sum1[i]==0) {
+					           var own1=[];
+					            for(var ii=0;ii<9;ii++) {
+					                own1[ii]=sum1[ii];
+					                
+					            }
+					          
+					            //复制一个ownboard
+					            var other1=[];
+					            for(var ii=0;ii<9;ii++) {
+					                other1[ii]=sum2[ii];//复制一个otherboard
+					              
+					            }
+					           
+					
+					            //对数组进行操作
+					            own1[i]=figure;
+					            if(i>=0&&i<=2){//同行消灭处理
+					                for(var j=0;j<=2;j++){
+					                    if(other1[j]==figure) {
+											other1[j]=0;
+										}
+					                }
+					            }
+					            else if(i>=3&&i<=5){
+					                for(var j=3;j<=5;j++){
+					                    if(other1[j]==figure){
+											 other1[j]=0;
+										}
+					                }
+					            }
+					            else if(i>=6&&i<=8){
+					                for(var j=6;j<=8;j++){
+					                    if(other1[j]==figure) {
+											other1[j]=0;
+										}
+					                }
+					            }
+					
+					            var D_ownscore=this.calculate(own1)-this.calculate(sum1);
+					            var D_otherscore=this.calculate(sum2)-this.calculate(other1);
+					            var Differ=D_otherscore+D_ownscore;//获取操作后的差值
+					            D_value[i]=Differ;
+					
+					        }
+					    }//至此D_value的值已经初步形成
+						
+						 for(var i=0;i<3;i++){//根据已知格子权重赋值
+						        if(Block[i]!=0)
+								{
+						        switch (i)
+						        {
+						        case 0:
+						            for(var  j=0;j<3;j++){
+						                if(D_value[j]!=0) {
+										D_value[j]=D_value[j]+Block[0]*2.5;
+						                if(Block[0]==3) {
+											D_value[j];
+										}
+						                if(Block[0]==2) {
+											D_value[j]=D_value[j]-0;
+										}
+						                if(Block[0]==1){
+											 D_value[j]=D_value[j]-3;
+										}
+						                if(D_value[j]<0){
+											 D_value[j]=0.1;
+										}
+						                }
+						            }
+						            break;
+						        case 1:
+						            for(var j=3;j<6;j++){
+						                if(D_value[j]!=0) {
+											D_value[j]=D_value[j]+Block[1]*2.5;
+						                if(Block[1]==3) {
+											D_value[j];
+										}
+						                if(Block[1]==2) {
+											D_value[j]=D_value[j]-0;
+										}
+						                if(Block[1]==1){
+											 D_value[j]=D_value[j]-3;
+										}
+						                if(D_value[j]<0){
+											D_value[j]=0.1;
+										} 
+						                }
+						            }
+						            break;
+						        case 2:
+						            for(var j=6;j<9;j++){
+						                if(D_value[j]!=0) {
+											D_value[j]=D_value[j]+Block[2]*2.5;
+						                if(Block[2]==3) {
+											D_value[j];
+										}
+						                if(Block[2]==2) {
+											D_value[j]=D_value[j]-0;
+										}
+						                if(Block[2]==1) {
+											D_value[j]=D_value[j]-3;
+										}
+						                if(D_value[j]<0) {
+											D_value[j]=0.1;
+										}
+						                }
+						            }
+						            break;
+						        default:
+						            break;
+						        }
+								}
+						    }
+					var max = 0;
+				    var Di_value=[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0];
+				    var flag=0;
+				    for(var i=0;i<9;i++) {
+				
+				        if(D_value[i]>max){
+				            max=D_value[i];
+				            flag=i;
+				        }
+				    }
+				    return flag;	
+			},
+		
 			back(){
 				uni.navigateTo({
 					url:'/pages/index/index'
@@ -181,18 +447,18 @@
 					return 0;
 				}
 			},
-			calculate(sum){
+			calculate(nums){
 				var count=0
 				var sum1=[0,0,0,0,0,0,0]
 				var sum2=[0,0,0,0,0,0,0]
 				var sum3=[0,0,0,0,0,0,0]
 				for(var i=0;i<9;i++){
 					if(i>=0&&i<3){
-					sum1[sum[i]]++	
+					sum1[nums[i]]++	
 					}else if(i>=3&&i<6){
-						sum2[sum[i]]++	
+						sum2[nums[i]]++	
 					}else{
-						sum3[sum[i]]++	
+						sum3[nums[i]]++	
 					}
 					}
 				console.log(sum1,sum2,sum3)
@@ -251,11 +517,11 @@
 				this.changenum1=1
 				this.ready1=1
 				this.click=1
-				this.ready2=true
-				console.log(index)
+				this.ready2=true			
+				console.log("下在",index)
 				this.sum1[index]=this.result_num
 				this.ima_list1[index]=this.array_t[this.result_num-1]
-				console.log((this.ima_list1[index]))
+				console.log(this.ima_list1[index])
 				this.ready=true
 				this.isShow= false// 更新dom
 				this.$nextTick(()=>{
@@ -304,12 +570,12 @@
 					this.score1=this.calculate(this.sum1)
 					this.score2=this.calculate(this.sum2)
 					if(this.score1>this.score2){
-						this.winner='user1'
+						this.winner='人工智障'
 					}else{
 						this.winner='user2'
 					}
 				
-					this.message = `用户分数user1:${this.score1}user2:${this.score2}胜者:${this.winner}`
+					this.message = `用户分数  人工智障:${this.score1},user2:${this.score2},胜者:${this.winner}`
 					this.dialogToggle5('info')
 					return 
 				}
@@ -338,7 +604,7 @@
 				this.ready1=true
 				this.sum2[index]=this.result_num
 				this.ima_list2[index]=this.array_t[this.result_num-1]
-				console.log((this.ima_list2[index]))
+				console.log(this.ima_list2[index])
 				this.isShow= false// 更新dom
 				this.$nextTick(()=>{
 				this.isShow = true
@@ -385,14 +651,22 @@
 				this.score1=this.calculate(this.sum1)
 				this.score2=this.calculate(this.sum2)
 				if(this.score1>this.score2){
-					this.winner='user1'
+					this.winner='人工智障'
 				}else{
 					this.winner='user2'
 				}
-				this.message = `用户分数:  user1:${this.score1} ; user2:${this.score2} ; 胜者 ${this.winner}`
+				this.message = `用户分数:  人工智障:${this.score1} ; user2:${this.score2} ; 胜者 ${this.winner}`
 				this.dialogToggle5('info')
 				return
 			}
+			
+			var that=this
+			var t=setTimeout(function(){
+				that.work1()
+			},1000);
+		
+			
+				
 			},
 			back(){
 				uni.navigateTo({
@@ -410,41 +684,7 @@
 			dialogConfirm1() {
 							console.log('点击确认')
 							this.messageText = `点击确认了 ${this.msgType} 窗口`
-							
-							this.message=''
-							this.msgType=''
-							this.sum1=[0,0,0,0,0,0,0,0,0]
-							this.sum2=[0,0,0,0,0,0,0,0,0]
-							this.start1=false
-							this.msgType=''
-							this.full=0,
-							this.start2=false
-							this.please=0
-							this.use1=0
-							this.use2=0
-							this.score1=0
-							this.result_text=''
-							this.score2=0
-							this.ready1=1
-							this.winner=''
-							this.ready2=1,
-							this.result_ima1="https://pic1.imgdb.cn/item/633845fb16f2c2beb1030b47.png"
-							this.result_ima2="https://pic1.imgdb.cn/item/633845fb16f2c2beb1030b47.png"
-							this.result_num=''
-							this.ima_list1=[
-								'','','','','',''
-							]
-							this.ima_list2=[
-								'','','','','',''
-							]
-							this.click=0
-							this.changenum1=0
-							this.changenum2=0
-							
-							this.isShow= false// 更新dom
-							this.$nextTick(()=>{
-							this.isShow = true
-							    })
+							this.readyselect=false
 						},
 			
 			work1(){
@@ -467,17 +707,26 @@
 				this.ready1=0
 				this.start1=true
 				this.result_num=Math.floor(Math.random() * 6) + 1;
-				console.log(this.result_num)
+				console.log("cas",this.result_num)
 			
 				this.result_ima1=this.array[this.result_num-1]
+				var that=this
+				console.log(this.radio1)
+				var t=setTimeout(function(){
+					var index
+					if(that.radio1==0){
+						index=that.easyMod(that.sum1,that.sum2,that.result_num)
+					}else if(that.radio1==1){
+						index=that.stableMod(that.sum1,that.sum2,that.result_num)
+					}else{
+						index=that.nextStep(that.sum1,that.sum2,that.result_num)
+					}
+					that.step_in1(index)
+				},1000);
+					
+				 
+					
 				
-				 var t = setTimeout(function () {
-				    this.result_ima1=this.array_t[this.result_num-1]
-					console.log('加载框已关闭...')
-					
-				    }, 3000);
-					
-				clearTimeout(t)
 				
 			},
 			work2(){
@@ -547,6 +796,13 @@
 </script>
 
 <style scoped>
+	.select{
+		position:fixed;
+		z-index:3;
+		left:18%;
+		border-radius: 20rpx;
+		top:30%;
+	}
 	.chessBoard1{
 		position:absolute;
 		background-color: rgba(255,255,255,0.5);
@@ -577,6 +833,7 @@
 		height:30%;
 		margin:auto;
 	}
+	
 	.block_ima{
 		width:90%;
 		height:90%;
@@ -593,6 +850,10 @@
 		width:90rpx;
 		height:90rpx;
 	}
+	.select_list{
+		width:80%;
+		margin:10rpx auto;
+	}
 	.person1{
 		width:80rpx;
 		height:80rpx;
@@ -600,6 +861,12 @@
 	.person2{	
 		width:80rpx;
 		height:80rpx;
+	}
+	.decide_moding{
+		width:80%;
+		margin-left:10%;
+		margin-top:5%;
+		margin-bottom: 5%;
 	}
 	.user1{
 		width:80%;

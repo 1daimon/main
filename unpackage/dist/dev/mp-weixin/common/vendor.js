@@ -2584,7 +2584,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 116:
+/***/ 130:
 /*!***************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***************************************************************************************************/
@@ -3761,7 +3761,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 124:
+/***/ 138:
 /*!***********************************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
   \***********************************************************************************************************************/
@@ -3898,6 +3898,57 @@ function createAnimation(option, _this) {
   return new MPAnimation(option, _this);
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 144:
+/*!****************************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 145));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 146));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 147));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 145:
+/*!***************************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
+  \***************************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show more\",\"uni-load-more.contentrefresh\":\"loading...\",\"uni-load-more.contentnomore\":\"No more data\"}");
+
+/***/ }),
+
+/***/ 146:
+/*!********************************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
+  \********************************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
+
+/***/ }),
+
+/***/ 147:
+/*!********************************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
+  \********************************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
 
 /***/ }),
 

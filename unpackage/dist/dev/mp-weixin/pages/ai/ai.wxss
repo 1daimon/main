@@ -1,4 +1,11 @@
 
+.select.data-v-f5844974{
+	position:fixed;
+	z-index:3;
+	left:18%;
+	border-radius: 20rpx;
+	top:30%;
+}
 .chessBoard1.data-v-f5844974{
 	position:absolute;
 	background-color: rgba(255,255,255,0.5);
@@ -45,6 +52,10 @@
 	width:90rpx;
 	height:90rpx;
 }
+.select_list.data-v-f5844974{
+	width:80%;
+	margin:10rpx auto;
+}
 .person1.data-v-f5844974{
 	width:80rpx;
 	height:80rpx;
@@ -52,6 +63,12 @@
 .person2.data-v-f5844974{	
 	width:80rpx;
 	height:80rpx;
+}
+.decide_moding.data-v-f5844974{
+	width:80%;
+	margin-left:10%;
+	margin-top:5%;
+	margin-bottom: 5%;
 }
 .user1.data-v-f5844974{
 	width:80%;
