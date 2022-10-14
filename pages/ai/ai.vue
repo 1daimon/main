@@ -5,11 +5,10 @@
 			<uni-data-checkbox class="select_list" mode="button" v-model="radio1" :localdata="moding"></uni-data-checkbox>
 			<button @click="decide_dif" class="decide_moding">确定</button>
 			</uni-section>
-
 		</div>
 		
 		<image @click="back" class="home" src="https://pic1.imgdb.cn/item/633976c516f2c2beb129b2b0.png" mode=""></image>
-		<image class="back_ima" src="https://pic1.imgdb.cn/item/63393f8f16f2c2beb1e11bff.png" mode="scaleToFill"></image>
+		<image class="back_ima" src="https://pic1.imgdb.cn/item/63490d9616f2c2beb1b4ddd3.png" mode="scaleToFill"></image>
 		<div class="chessBoard1">
 			<div class="block" v-for="(item,index) in sum1" >	
 				<image class="block_ima"  :src="ima_list1[index]" v-if="isShow"></image>
@@ -50,8 +49,8 @@
 					</uni-popup>			
 		<div class="user2">
 			<div class="person_msg2">
-				<image class="person2" src="https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" mode=""></image>
-			<div class="user_name2">user2</div>
+				<image class="person2" :src="per_ima" mode=""></image>
+			<div class="user_name2">{{name}}</div>
 		</div>
 		<image @click="work2" :class="{'tou2':!start2,'tou2_start':start2}" :src="result_ima2" ></image>
 	</div>
@@ -78,9 +77,11 @@
 						value: 2
 					},
 				],
-				
+				readylogin:0,
+				name:'XXX',
 				radio1:'',
 				message:'',
+				per_ima:'https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png',
 				msgType: '',
 				sum1:[0,0,0,0,0,0,0,0,0],
 				sum2:[0,0,0,0,0,0,0,0,0],
@@ -203,7 +204,7 @@
 				        break;
 				    case 1:
 				        for(var i=3;i<6;i++){
-				            if(sum2[i]==0){
+				            if(sum1[i]==0){
 								nextStep=i
 							} 
 				        }
@@ -572,10 +573,10 @@
 					if(this.score1>this.score2){
 						this.winner='人工智障'
 					}else{
-						this.winner='user2'
+						this.winner=this.name
 					}
 				
-					this.message = `用户分数  人工智障:${this.score1},user2:${this.score2},胜者:${this.winner}`
+					this.message = `用户分数  人工智障:${this.score1}; ${this.name}:${this.score2},胜者:${this.winner}`
 					this.dialogToggle5('info')
 					return 
 				}
@@ -653,9 +654,9 @@
 				if(this.score1>this.score2){
 					this.winner='人工智障'
 				}else{
-					this.winner='user2'
+					this.winner=this.name
 				}
-				this.message = `用户分数:  人工智障:${this.score1} ; user2:${this.score2} ; 胜者 ${this.winner}`
+				this.message = `用户分数:  人工智障:${this.score1} ; ${this.name}:${this.score2} ; 胜者 ${this.winner}`
 				this.dialogToggle5('info')
 				return
 			}
@@ -792,6 +793,29 @@
 			}*/
 		}
 	},
+		onShow(){
+			var that=this
+			uni.getStorage({
+				key:'readylogin',
+				success: function (res) {
+					console.log("res",res)
+						if(res.data==1){
+							that.readylogin=res.data
+							that.per_ima="https://pic1.imgdb.cn/item/6348460b16f2c2beb1c50215.jpg"
+						}
+					}
+			})
+			uni.getStorage({
+				key:'name',
+				success: function (res) {
+					console.log("res",res)
+						
+							that.name=res.data
+							
+						
+					}
+			})
+		}
 	}
 </script>
 
@@ -801,7 +825,7 @@
 		z-index:3;
 		left:18%;
 		border-radius: 20rpx;
-		top:30%;
+		top:35%;
 	}
 	.chessBoard1{
 		position:absolute;
@@ -882,7 +906,7 @@
 	}
 	.person_msg2{
 		display: flex;
-		margin-left:10%;
+		margin-left:6%;
 		margin-top:15rpx;
 	}
 	.user_name1{

@@ -1,7 +1,7 @@
 <template>
 	<div class="page">
 		<image @click="back" class="home" src="https://pic1.imgdb.cn/item/633976c516f2c2beb129b2b0.png" mode=""></image>
-		<image class="back_ima" src="https://pic1.imgdb.cn/item/63393f8f16f2c2beb1e11bff.png" mode="scaleToFill"></image>
+		<image class="back_ima" src="https://pic1.imgdb.cn/item/63490d9616f2c2beb1b4ddd3.png" mode="scaleToFill"></image>
 		<div class="chessBoard1">
 			<div class="block" v-for="(item,index) in sum1"  @click="step_in1(index)">	
 				<image class="block_ima"  :src="ima_list1[index]" v-if="isShow"></image>

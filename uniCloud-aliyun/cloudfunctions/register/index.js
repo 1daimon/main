@@ -4,7 +4,9 @@
 	const db=uniCloud.database();
 	const userdb=db.collection('user');
 	exports.main=async(event,context)=>{
-		let adduserres=await userdb.add(event);
+		const param =JSON.parse(event.body)
+		
+		let adduserres=await userdb.add(param);
 		console.log('event : ', event)
 		
 		//返回数据给客户端

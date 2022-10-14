@@ -65,7 +65,55 @@
 							this.$refs.message.open()
 						},
 			login_to(){
-				uniCloud.callFunction({
+				uni.request({
+				    url: 'https://3757ba70-146c-493a-913f-2092ae82cae5.bspapp.com/login', //仅为示例，并非真实接口地址。
+				    data: this.form,
+					method:'POST',
+				    success: (res) => {
+				        console.log(res.data);
+				        this.text = 'request success';
+						if(res.data.username!=null){
+							this.username=res.data.username,
+							this.password=res.data.password,
+							this.name=res.data.name
+							uni.setStorage({
+								key: 'username',
+								data: this.username,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.setStorage({
+								key: 'password',
+								data: this.password,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.setStorage({
+								key: 'name',
+								data: this.name,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.setStorage({
+								key: 'readylogin',
+								data: 1,
+								success: function () {
+									console.log('success');
+								}
+							});
+							uni.navigateTo({
+								url:'/pages/index/index'
+							})
+						}else{
+							this.messageToggle()
+						}
+						
+				    }
+				});
+				/*uniCloud.callFunction({
 					name:'login',
 					data:this.form,
 					success:(e)=>{
@@ -109,7 +157,7 @@
 							this.messageToggle()
 						}
 					}
-				})
+				})*/
 			},
 			go_register(){
 				uni.navigateTo({

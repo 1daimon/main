@@ -98,10 +98,10 @@ var components
 try {
   components = {
     uniPopup: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 78))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 82))
     },
     uniPopupMessage: function() {
-      return Promise.all(/*! import() | uni_modules/uni-popup/components/uni-popup-message/uni-popup-message */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-popup/components/uni-popup-message/uni-popup-message")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup-message/uni-popup-message.vue */ 85))
+      return Promise.all(/*! import() | uni_modules/uni-popup/components/uni-popup-message/uni-popup-message */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-popup/components/uni-popup-message/uni-popup-message")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup-message/uni-popup-message.vue */ 89))
     }
   }
 } catch (e) {
@@ -184,7 +184,8 @@ var _default =
       time: 5,
       btn_show: true,
       messageText: '',
-      readylogin: 0 };
+      readylogin: 0,
+      per_ima: "https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" };
 
   },
 
@@ -196,6 +197,11 @@ var _default =
     go_per: function go_per() {
       uni.navigateTo({
         url: '/pages/person/person' });
+
+    },
+    into_logical: function into_logical() {
+      uni.navigateTo({
+        url: '/pages/logical/logical' });
 
     },
     into_inter: function into_inter() {
@@ -221,15 +227,17 @@ var _default =
 
 
   onShow: function onShow() {
+    var that = this;
     uni.getStorage({
       key: 'readylogin',
       success: function success(res) {
         console.log("res", res);
         if (res.data == 1) {
-          this.readylogin = res.data;
+          that.readylogin = res.data;
+          that.per_ima = "https://pic1.imgdb.cn/item/6348460b16f2c2beb1c50215.jpg";
         }
-
       } });
+
 
     setInterval(function () {
       this.time = this.time - 1;

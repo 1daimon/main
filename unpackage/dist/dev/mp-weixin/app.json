@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ai/ai",
     "pages/inter/inter",
+    "pages/logical/logical",
     "pages/register/register",
     "pages/login/login",
-    "pages/test/test",
-    "pages/ai/ai",
     "pages/into/into",
     "pages/person/person"
   ],

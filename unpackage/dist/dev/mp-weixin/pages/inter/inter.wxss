@@ -1,12 +1,15 @@
 
-.select.data-v-f5844974{
+.wait_ima.data-v-e5614500{
+	width:100%;
+}
+.select.data-v-e5614500{
+	width:100%;
 	position:fixed;
 	z-index:3;
-	left:18%;
 	border-radius: 20rpx;
-	top:35%;
+	top:25%;
 }
-.chessBoard1.data-v-f5844974{
+.chessBoard1.data-v-e5614500{
 	position:absolute;
 	background-color: rgba(255,255,255,0.5);
 	z-index:1;
@@ -17,7 +20,7 @@
 	flex-wrap: wrap;
 	margin-left:20.68%;
 }
-.chessBoard2.data-v-f5844974{
+.chessBoard2.data-v-e5614500{
 	position:absolute;
 	background-color: rgba(255,255,255,0.5);
 	z-index:1;
@@ -28,49 +31,49 @@
 	flex-wrap: wrap;
 	margin-left:20.68%;
 }
-.page.data-v-f5844974{
+.page.data-v-e5614500{
 	height:100vh;
 }
-.block.data-v-f5844974{
+.block.data-v-e5614500{
 	width:30%;
 	height:30%;
 	margin:auto;
 }
-.block_ima.data-v-f5844974{
+.block_ima.data-v-e5614500{
 	width:90%;
 	height:90%;
 	margin:5%;
 }
-.back_ima.data-v-f5844974{
+.back_ima.data-v-e5614500{
 	width:100%;
 	height:100vh;
 	position: absolute;
 	z-index:-1;
 }
-.tou.data-v-f5844974{
+.tou.data-v-e5614500{
 	margin-left:10%;
 	width:90rpx;
 	height:90rpx;
 }
-.select_list.data-v-f5844974{
+.select_list.data-v-e5614500{
 	width:80%;
 	margin:10rpx auto;
 }
-.person1.data-v-f5844974{
+.person1.data-v-e5614500{
 	width:80rpx;
 	height:80rpx;
 }
-.person2.data-v-f5844974{	
+.person2.data-v-e5614500{	
 	width:80rpx;
 	height:80rpx;
 }
-.decide_moding.data-v-f5844974{
+.decide_moding.data-v-e5614500{
 	width:80%;
 	margin-left:10%;
 	margin-top:5%;
 	margin-bottom: 5%;
 }
-.user1.data-v-f5844974{
+.user1.data-v-e5614500{
 	width:80%;
 	margin:0 10%;
 	top:10%;
@@ -78,47 +81,47 @@
 	position:fixed;
 	justify-content:space-between;
 }
-.person_msg1.data-v-f5844974{
-	
+.person_msg1.data-v-e5614500{
+	padding:10rpx 0;
 	display: flex;
 }
-.person_msg2.data-v-f5844974{
+.person_msg2.data-v-e5614500{
 	display: flex;
 	margin-left:6%;
 	margin-top:15rpx;
 }
-.user_name1.data-v-f5844974{
+.user_name1.data-v-e5614500{
 	font-size: 50rpx;
 	margin-right: 20rpx;
 }
-.user_name2.data-v-f5844974{
+.user_name2.data-v-e5614500{
 	font-size: 50rpx;
 	margin-left: 20rpx;
 }
-.tou2.data-v-f5844974{
+.tou2.data-v-e5614500{
 	margin-left:25%;
 	width:90rpx;
 	height:90rpx;
 	margin-top:10rpx;
 }
-.tou2_start.data-v-f5844974{
+.tou2_start.data-v-e5614500{
 	margin-left:25%;
 	width:110rpx;
 	height:110rpx;
 }
-.tou1.data-v-f5844974{
+.tou1.data-v-e5614500{
 	margin-left:10%;
 	width:90rpx;
 	height:90rpx;
 	margin-top:10rpx;
 	margin-right:20%;
 }
-.tou1_start.data-v-f5844974{
+.tou1_start.data-v-e5614500{
 	margin-left:5%;
 	width:110rpx;
 	height:110rpx;
 }
-.user2.data-v-f5844974{
+.user2.data-v-e5614500{
 	position: fixed;
 	bottom:8%;
 	display: flex;
@@ -126,7 +129,7 @@
 	margin:0 10%;
 	height:110rpx;
 }
-.home.data-v-f5844974{
+.home.data-v-e5614500{
 	height:90rpx;
 	width:90rpx;
 	position: fixed;

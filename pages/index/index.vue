@@ -5,14 +5,14 @@
 				<uni-popup ref="message" type="message">
 								<uni-popup-message type="warn" :message="messageText" :duration="2000"></uni-popup-message>
 							</uni-popup>
-		<image class="login_ima" @click="go_per" src="https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png" mode="aspectFit"></image>
+		<image class="login_ima" @click="go_per" :src="per_ima" mode="aspectFit"></image>
 		
 		<image class="ima" src="https://pic1.imgdb.cn/item/63383d8d16f2c2beb1f9cec5.png" mode="scaleToFill"></image>
 		<div class="btns" >
 		<image @click="into_local" class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe2a.png" mode="widthFix"></image>
 		<image @click="into_ai" class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe32.png" mode="widthFix"></image>
 		<image  @click="into_inter" class="btn_ima" src="https://pic1.imgdb.cn/item/6338514a16f2c2beb110ecaf.png" mode="widthFix"></image>
-		<image  @click="into_ai" class="btn_ima" src="https://pic1.imgdb.cn/item/6338530d16f2c2beb112fe39.png" mode="widthFix"></image>
+		<image  @click="into_logical" class="btn_ima" src="https://pic1.imgdb.cn/item/6349071316f2c2beb1a9ce8d.png" mode="widthFix"></image>
 		</div>
 	</div>
 </template>
@@ -25,6 +25,7 @@
 				btn_show:true,
 				messageText:'',
 				readylogin:0,
+				per_ima:"https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png"
 			}
 		},
 		
@@ -36,6 +37,11 @@
 			go_per(){
 				uni.navigateTo({
 					url:'/pages/person/person'
+				})
+			},
+			into_logical(){
+				uni.navigateTo({
+					url:'/pages/logical/logical'
 				})
 			},
 			into_inter(){
@@ -61,16 +67,18 @@
 			 
 		},
 		onShow(){
+			var that=this
 			uni.getStorage({
 				key:'readylogin',
 				success: function (res) {
 					console.log("res",res)
 						if(res.data==1){
-							this.readylogin=res.data
+							that.readylogin=res.data
+							that.per_ima="https://pic1.imgdb.cn/item/6348460b16f2c2beb1c50215.jpg"
 						}
-						
 					}
 			})
+			
 			setInterval(function(){
 				this.time=this.time-1
 				if(this.time==0){

@@ -16,7 +16,7 @@
 			<image class="per_ima" :src="person.src" ></image>
 		</div>
 		<div class="name">
-			name
+			{{person.name}}
 		</div>
 		<div>
 			<div class="msg">
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		
-		
+		<button class="layout" @click="layout">退出登录</button>
 		</div>
 	</div>
 </template>
@@ -59,6 +59,15 @@
 			}
 		},
 		methods:{
+			layout(){
+				uni.clearStorage();
+				this.person={
+					email:'XXX',
+					name:'xxx',
+					src:'https://pic1.imgdb.cn/item/6338622e16f2c2beb125316b.png'
+				},
+				this.readylogin=0
+			},
 			go_login(){
 				uni.navigateTo({
 					url:'/pages/login/login'
@@ -72,23 +81,24 @@
 			
 		},
 		onShow(){
+			var that =this
 			uni.getStorage({
 				key:'readylogin',
 				success: function (res) {
 					console.log("res",res.data)
 						if(res.data==1){
-							this.person.src="https://pic1.imgdb.cn/item/6348460b16f2c2beb1c50215.jpg",
-							this.readylogin=res.data
+							that.person.src="https://pic1.imgdb.cn/item/6348460b16f2c2beb1c50215.jpg",
+							that.readylogin=res.data
 							uni.getStorage({
 								key:'name',
 								success: function (res) {
-									this.person.name=res.data
+									that.person.name=res.data
 								}
 							})
 							uni.getStorage({
 								key:'username',
 								success: function (res) {
-									this.person.email=res.data
+									that.person.email=res.data
 								}
 							})
 						}
@@ -101,7 +111,7 @@
 </script>
 
 <style scoped>
-	.store{
+	.layout{
 		margin:15% auto;
 		width:80%;
 		color:white;

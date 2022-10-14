@@ -7,11 +7,24 @@
 			}
 		},
 		{
+			"path": "pages/ai/ai",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		},
+		{
 			"path": "pages/inter/inter",
 			"style": {
 				"navigationStyle":"custom"
 			}
 		},
+		{
+			"path": "pages/logical/logical",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		},
+		
 		{
 			"path": "pages/register/register",
 			"style": {
@@ -25,18 +38,8 @@
 			}
 		},
 		
-		{
-			"path":"pages/test/test",
-			"style":{
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/ai/ai",
-			"style": {
-				"navigationStyle":"custom"
-			}
-		},
+		
+		
 		
 	{
 		"path": "pages/into/into",

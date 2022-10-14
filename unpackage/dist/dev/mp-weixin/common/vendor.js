@@ -1464,7 +1464,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2546,29 +2546,7 @@ uni$1;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": [{ "path": "pages/index/index", "style": { "navigationStyle": "custom" } }, { "path": "pages/inter/inter", "style": { "navigationStyle": "custom" } }, { "path": "pages/register/register", "style": { "navigationStyle": "custom" } }, { "path": "pages/login/login", "style": { "navigationStyle": "custom" } }, { "path": "pages/test/test", "style": { "navigationStyle": "custom" } }, { "path": "pages/ai/ai", "style": { "navigationStyle": "custom" } }, { "path": "pages/into/into", "style": { "navigationStyle": "custom" } }, { "path": "pages/person/person", "style": { "navigationStyle": "custom" } }], "globalStyle": {} };exports.default = _default;
-
-/***/ }),
-
-/***/ 100:
-/*!************************************************************************************************************!*\
-  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hans.json ***!
-  \************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"确定\",\"uni-popup.placeholder\":\"请输入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
-
-/***/ }),
-
-/***/ 101:
-/*!************************************************************************************************************!*\
-  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hant.json ***!
-  \************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"確定\",\"uni-popup.placeholder\":\"請輸入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": [{ "path": "pages/index/index", "style": { "navigationStyle": "custom" } }, { "path": "pages/ai/ai", "style": { "navigationStyle": "custom" } }, { "path": "pages/inter/inter", "style": { "navigationStyle": "custom" } }, { "path": "pages/logical/logical", "style": { "navigationStyle": "custom" } }, { "path": "pages/register/register", "style": { "navigationStyle": "custom" } }, { "path": "pages/login/login", "style": { "navigationStyle": "custom" } }, { "path": "pages/into/into", "style": { "navigationStyle": "custom" } }, { "path": "pages/person/person", "style": { "navigationStyle": "custom" } }], "globalStyle": {} };exports.default = _default;
 
 /***/ }),
 
@@ -2584,7 +2562,58 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 130:
+/***/ 116:
+/*!********************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/index.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 117));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 118));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 119));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 117:
+/*!*******************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/en.json ***!
+  \*******************************************************************************************************/
+/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-popup.cancel\":\"cancel\",\"uni-popup.ok\":\"ok\",\"uni-popup.placeholder\":\"pleace enter\",\"uni-popup.title\":\"Hint\",\"uni-popup.shareTitle\":\"Share to\"}");
+
+/***/ }),
+
+/***/ 118:
+/*!************************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hans.json ***!
+  \************************************************************************************************************/
+/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"确定\",\"uni-popup.placeholder\":\"请输入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
+
+/***/ }),
+
+/***/ 119:
+/*!************************************************************************************************************!*\
+  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hant.json ***!
+  \************************************************************************************************************/
+/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"確定\",\"uni-popup.placeholder\":\"請輸入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
+
+/***/ }),
+
+/***/ 134:
 /*!***************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***************************************************************************************************/
@@ -3761,7 +3790,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 138:
+/***/ 142:
 /*!***********************************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
   \***********************************************************************************************************************/
@@ -3901,7 +3930,7 @@ function createAnimation(option, _this) {
 
 /***/ }),
 
-/***/ 144:
+/***/ 148:
 /*!****************************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
   \****************************************************************************************************************/
@@ -3909,9 +3938,9 @@ function createAnimation(option, _this) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 145));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 146));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 147));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 149));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 150));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 151));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3919,7 +3948,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 145:
+/***/ 149:
 /*!***************************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
   \***************************************************************************************************************/
@@ -3930,7 +3959,7 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show mo
 
 /***/ }),
 
-/***/ 146:
+/***/ 150:
 /*!********************************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
   \********************************************************************************************************************/
@@ -3941,7 +3970,7 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多
 
 /***/ }),
 
-/***/ 147:
+/***/ 151:
 /*!********************************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
   \********************************************************************************************************************/
@@ -10102,7 +10131,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -10123,14 +10152,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -10216,7 +10245,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"北冥有鱼","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11461,7 +11490,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 90:
+/***/ 94:
 /*!***************************************************************************************************!*\
   !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/popup.js ***!
   \***************************************************************************************************/
@@ -11493,35 +11522,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       }
       return parent;
     } } };exports.default = _default;
-
-/***/ }),
-
-/***/ 98:
-/*!********************************************************************************************************!*\
-  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/index.js ***!
-  \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 99));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 100));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 101));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
-{
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default };exports.default = _default;
-
-/***/ }),
-
-/***/ 99:
-/*!*******************************************************************************************************!*\
-  !*** D:/大学文件/HBuilderX/HBuilderProjects/北冥有鱼/uni_modules/uni-popup/components/uni-popup/i18n/en.json ***!
-  \*******************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"cancel\",\"uni-popup.ok\":\"ok\",\"uni-popup.placeholder\":\"pleace enter\",\"uni-popup.title\":\"Hint\",\"uni-popup.shareTitle\":\"Share to\"}");
 
 /***/ })
 

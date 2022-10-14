@@ -1,0 +1,15 @@
+
+.home.data-v-35d3cb1a{
+	width:90rpx;
+	position:absolute;
+	height:90rpx;
+	top:1%;
+	z-index:1;
+	left:0%;
+}
+.back_ima.data-v-35d3cb1a{
+	width:100%;
+	position: absolute;
+	z-index:-1;
+}
+

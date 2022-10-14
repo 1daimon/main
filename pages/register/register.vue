@@ -84,14 +84,16 @@
 					})
 				},
 				user_add(){
-					uniCloud.callFunction({
-						name:'register',
+					uni.request({
+						url:'https://3757ba70-146c-493a-913f-2092ae82cae5.bspapp.com/register',
 						data:this.form,
+						method:'POST',
 						success:(e)=>{
-							console.log(e.result);
+							console.log(e)
 							this.dialogToggle('info');
 						}
 					})
+					
 				}
 			}
 		}
